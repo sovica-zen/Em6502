@@ -54,7 +54,7 @@ void Mem::Print(word PC, int begin = 0, int end = 65536) {
     for (int i = begin; i < end; i++) {
         if (i % 16 == 0) {
             std::cout << "\n";
-            std::cout << "\x1B[32m"; printf("%02x", i / (16 * 16)); std::cout << "\u001b[0m" << " ";
+            std::cout << "\x1B[32m"; printf("%02x", i / (16 * 16)); std::cout    << "\u001b[0m" << " ";
         }
         if (i == PC) std::cout << "\x1B[31m";
         printf("%02x", ram[i] & 0xff);
@@ -62,6 +62,4 @@ void Mem::Print(word PC, int begin = 0, int end = 65536) {
     }
 }
 
-
-
-
+// 

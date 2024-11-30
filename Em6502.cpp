@@ -9,19 +9,18 @@ unsigned char rawData[RAM_SIZE] = {
 };
 
 
-
-
 int main() {
 	CPU cpu = CPU();
 	Mem* ram = new Mem();
 	cpu.ram = ram;
 	
-	ram->load(rawData, RAM_SIZE);
+	ram->load(SNAKE, RAM_SIZE);
 	
-	cpu.PC = 0x0400;
+
+	cpu.PC = 0;
 	while (cycles--) {
-		//ram->Print(cpu.PC, 0, 64);
-		ram->Print(cpu.PC, 0x400, 0x400+500);
+		ram->Print(cpu.PC, 0, 512);
+		//ram->Print(cpu.PC, 0, 0x050f);
 		byte instruction = ram->read(cpu.PC);
 		cpu.execute(instruction);
 		cpu.printRegisters();
